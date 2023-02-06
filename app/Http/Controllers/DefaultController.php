@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\ItemDb;
+use App\Models\MobDb;
 use Illuminate\Http\Request;
 
 class DefaultController extends Controller
@@ -19,7 +20,7 @@ class DefaultController extends Controller
                 $results = ItemDb::where('name_english', 'LIKE', '%'.$search.'%')->paginate();
                 $results = $results->appends(request()->input());
             } else {
-                $results = ItemDb::where('kName', 'LIKE', '%'.$search.'%')->paginate();
+                $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate();
                 $results = $results->appends(request()->input());
             }
         }
