@@ -25,11 +25,11 @@ foreach ($ports as $key => $port)
 @endphp
 
 <header>
-    <nav class="bg-orange-50 px-4 lg:px-6 py-2.5 dark:bg-gray-800 border-b-2 border-orange-200">
+    <nav class="bg-orange-50 px-4 lg:px-6 py-1 dark:bg-gray-800 border-b-2 border-orange-200">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="/" class="flex items-center">
                 <img src="images/poring.png" class="mr-2 h-15 sm:h-20" alt="Ragnarok Old World Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">ROW</span>
+                <span class="self-center text-3xl font-bold whitespace-nowrap dark:text-white"><span class="text-lime-600">R</span><span class="text-rose-600">O</span><span class="text-yellow-600">W</span></span>
             </a>
 
             <div class="flex items-center lg:order-2">
