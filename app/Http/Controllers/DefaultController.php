@@ -11,11 +11,9 @@ class DefaultController extends Controller
     public function index()
     {
         $users = User::where('id', '!=', 1);
-        $online = Char::where('online', 1)->count();
 
         return view('home', [
             'users' => $users,
-            'count' => $online
         ]);
     }
 }
