@@ -65,7 +65,9 @@
                 </tbody>
             </table>
 
-            {{ $results->links() }}
+            @if (count($results))
+                {{ $results->links() }}
+            @endif
         </div>
     </div>
 </x-layout>

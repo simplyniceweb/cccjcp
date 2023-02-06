@@ -17,8 +17,10 @@ class DefaultController extends Controller
         if ($type && $search) {
             if ($type == 'item') {
                 $results = ItemDb::where('name_english', 'LIKE', '%'.$search.'%')->paginate();
+                $results = $results->appends(request()->input());
             } else {
                 $results = ItemDb::where('kName', 'LIKE', '%'.$search.'%')->paginate();
+                $results = $results->appends(request()->input());
             }
         }
 
@@ -26,7 +28,7 @@ class DefaultController extends Controller
 
         return view('home', [
             'users' => $users,
-            'results' => $results->appends(request()->input())
+            'results' => $results
         ]);
     }
 }
