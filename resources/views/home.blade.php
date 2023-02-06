@@ -34,13 +34,38 @@
                 <form action="" class="w-full">
                     <div class="flex">
                         <select name="type" id="" class="mr-3 border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3">
-                            <option value="monster">Monster</option>
                             <option value="item">Item</option>
+                            <option value="monster">Monster</option>
                         </select>
-                        <input type="text" name="search" placeholder="Search" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3" id="">
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3" id="">
                     </div>
                 </form>
             </div>
+
+            <table class="mb-3 w-full border-collapse border border-slate-400">
+                <thead class="text-left">
+                    <tr>
+                        <th class="border border-slate-300 p-2">Name</th>
+                        <th class="border border-slate-300 p-2">Type</th>
+                        <th class="border border-slate-300 p-2">Weight</th>
+                        <th class="border border-slate-300 p-2">Attack</th>
+                        <th class="border border-slate-300 p-2">Slots</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($results as $result)
+                    <tr>
+                        <td class="border border-slate-300 p-2">{{ $result->name_english }}</td>
+                        <td class="border border-slate-300 p-2">{{ $result->type }}</td>
+                        <td class="border border-slate-300 p-2">{{ $result->weight }}</td>
+                        <td class="border border-slate-300 p-2">{{ $result->attack }}</td>
+                        <td class="border border-slate-300 p-2">{{ $result->slots }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            {{ $results->links() }}
         </div>
     </div>
 </x-layout>
