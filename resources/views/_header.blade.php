@@ -37,14 +37,8 @@ foreach ($ports as $key => $port)
                 <a href="#" class="font-medium rounded-lg text-sm px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">SIGNUP</a>
             </div>
 
-            <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+            <div class="justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                    @foreach ($ports as $port)
-                        <li>
-                            <a href="#" 
-                                class="block py-1 px-2 text-sm text-white rounded {{ $port['status'] == 'active' ? 'bg-emerald-400' : 'bg-red-400' }}">{{ strtoupper($port['status']) }} {{ strtoupper($port['name']) }}</a>
-                        </li>
-                    @endforeach
                     <li>
                         <a href="#" 
                             class="block py-1 px-2 text-sm text-white rounded bg-emerald-700">PLAYERS ONLINE: @php echo DB::table('char')->where('online', 1)->count(); @endphp</a>
@@ -57,4 +51,22 @@ foreach ($ports as $key => $port)
             </div>
         </div>
     </nav>
+
+    <nav class="bg-transparent px-4 lg:px-6 py-1 mt-3">
+        <div class="flex justify-center">
+
+            <div class="content-center items-center w-full lg:flex lg:w-auto">
+                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                    @foreach ($ports as $port)
+                        <li>
+                            <a href="#" 
+                                class="ring-offset-2 ring-2 block py-1 px-2 text-sm text-white rounded {{ $port['status'] == 'active' ? 'ring-emerald-300 bg-emerald-400' : 'ring-red-300 bg-red-400' }}">{{ strtoupper($port['status']) }} {{ strtoupper($port['name']) }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
 </header>
