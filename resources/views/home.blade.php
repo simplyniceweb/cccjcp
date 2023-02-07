@@ -16,35 +16,45 @@
                     <a href="" class="w-full font-semibold drop-shadow-md bg-gradient-to-r from-lime-500 to-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-lime-500 rounded p-2 my-3 text-white">DOWNLOAD FULL CLIENT <i class="fa-solid fa-gamepad float-right"></i></a>
                 </div>
                 <div class="p-3">
-                    {{ session('message') }}
                     @auth
-                    {{ 'asd' }}
-                        @else
-                    <form class="grid grid-rows-4 gap-y-2" action="{{ route('login.authenticate') }}" method="POST">
-                        @csrf
-                        <div class="grid grid-rows">
-                            <input type="text" name="userid" id="userid" value="{{ old('userid') }}" placeholder="Username" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3">
-                            @error('userid')
-                                <p class="text-xs text-red-500">{{ $message }}</p>
-                            @enderror
+                        <p class="text-xl uppercase font-bold text-gray-500">Welcome to <span class="text-lime-600">R</span><span class="text-rose-600">O</span><span class="text-yellow-600">W</span> {{ auth()->user()->userid }}!</p>
+                        <hr>
+                        <div class="grid grid-rows-2">
+                            <a href="{{ route('logout') }}" onClick="return confirm('Are you sure want to logout?')" class="w-full font-semibold drop-shadow-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 rounded p-2 my-3 text-white">LOGOUT OF ROW <i class="float-right fa-solid fa-right-from-bracket"></i></a>
                         </div>
-                        <div class="grid grid-rows">
-                            <input type="password" name="password" id="password" placeholder="Password" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3">
-                            @error('password')
-                                <p class="text-xs text-red-500">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="flex">
-                            <button type="submit" class="bg-sky-500 hover:bg-sky-700 rounded font-semibold text-white text-sm w-44">LOGIN</button>
-                            <button class="ml-8 bg-emerald-500 hover:bg-emerald-700 text-center rounded font-semibold text-white text-sm w-44">SIGN UP</button>
-                        </div>
-                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-center rounded font-semibold text-white text-sm">FORGOT PASSWORD?</button>
-                    </form>
+                    @else
+                            <form class="grid grid-rows-4 gap-y-2" action="{{ route('login.authenticate') }}" method="POST">
+                                @csrf
+                                <div class="grid grid-rows">
+                                    <input type="text" name="userid" id="userid" value="{{ old('userid') }}" placeholder="Username" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3">
+                                    @error('userid')
+                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="grid grid-rows">
+                                    <input type="password" name="user_pass" id="password" placeholder="Password" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3">
+                                    @error('user_pass')
+                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="flex">
+                                    <button type="submit" class="bg-sky-500 hover:bg-sky-700 rounded font-semibold text-white text-sm w-44">LOGIN</button>
+                                    <button class="ml-8 bg-emerald-500 hover:bg-emerald-700 text-center rounded font-semibold text-white text-sm w-44">SIGN UP</button>
+                                </div>
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-center rounded font-semibold text-white text-sm">FORGOT PASSWORD?</button>
+                            </form>
                     @endauth
                 </div>
             </div>
             
             <hr class="my-2">
+
+            @auth
+            <div class="grid grid-rows-2">
+                <h3>Manage Characters</h3>
+            </div>
+            
+            @endauth
 
             <div class="grid grid-cols-3 mt-2">
                 <form action="" class="w-full">

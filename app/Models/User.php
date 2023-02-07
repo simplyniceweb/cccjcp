@@ -40,4 +40,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAuthIdentifierName()
+    {
+        return "account_id";
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->user_pass;
+    }
+
+    public function findForPassport($username)
+    {
+        return $this->where('username', $username)->first();
+    }
+
+    public function validateForPassportPasswordGrant($password)
+    {
+        return md5($password);
+    }
 }

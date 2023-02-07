@@ -21,5 +21,5 @@ Route::get('/', [DefaultController::class, 'index']);
 Route::post('login/authenticate', [LoginController::class, 'authenticate'])
     ->name('login.authenticate');
 
-Route::post('logout', [LoginController::class, 'logout'])
+Route::get('logout', [LoginController::class, 'logout'])
     ->name('logout');
