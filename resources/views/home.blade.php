@@ -50,8 +50,8 @@
             <hr class="my-2">
 
             @auth
-                <div class="grid grid-rows-2">
-                    <h3>Manage Characters</h3>
+                <div class="block">
+                    <h3 class="text-2xl font-bold mb-0">Manage Characters</h3>
                 </div>
                 @include('tables.characters')
                 <hr class="my-5">

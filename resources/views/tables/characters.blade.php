@@ -12,6 +12,7 @@
             <th class="border border-slate-300 p-2">Base Lvl</th>
             <th class="border border-slate-300 p-2">Job Lvl</th>
             <th class="border border-slate-300 p-2">Last Log</th>
+            <th class="border border-slate-300 p-2">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,9 @@
             <td class="border border-slate-300 p-2">{{ $user->base_level ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $user->job_level ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $user->last_login ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2">
+                <button class="bg-red-400 px-1 font-semibold uppercase rounded text-white">Reset Position?</button>
+            </td>
         </tr>
         @endforeach
     </tbody>
