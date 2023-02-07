@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\ItemDb;
 use App\Models\MobDb;
+use App\Models\ItemDb;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DefaultController extends Controller
 {
     public function index()
     {
+        // dd(Auth::user());
         $results = [];
         $type = request()->input('type');
         $search = request()->input('search');
@@ -18,18 +20,19 @@ class DefaultController extends Controller
         if ($type && $search) {
             if ($type == 'item') {
                 $results = ItemDb::where('name_english', 'LIKE', '%'.$search.'%')->paginate();
-                $results = $results->appends(request()->input());
             } else {
                 $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate();
-                $results = $results->appends(request()->input());
             }
+
+            $results = $results->appends(request()->input());
         }
 
         $users = User::where('id', '!=', 1);
 
         return view('home', [
             'users' => $users,
-            'results' => $results
+            'results' => $results,
+            'type' => $type
         ]);
     }
 }
