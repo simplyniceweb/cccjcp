@@ -17,7 +17,7 @@
     <tbody>
         @foreach ($users as $user)
         <tr>
-            <td class="border border-slate-300 p-2"></td>
+            <td class="border border-slate-300 p-2"><img src="https://ratemyserver.net/skill_chars/j{{$user->class}}_{{ strtolower($user->sex) }}_stand.gif" class="w-9" alt=""></td>
             <td class="border border-slate-300 p-2">{{ $user->char_id }}</td>
             <td class="border border-slate-300 p-2">{{ $user->name ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $user->sex ?: 'n/a' }}</td>
