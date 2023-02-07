@@ -10,4 +10,5 @@ class Char extends Model
     use HasFactory;
 
     protected $table = "char";
+    public $timestamps = false;
 }
