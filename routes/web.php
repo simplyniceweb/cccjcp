@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CharacterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -17,6 +18,9 @@ use App\Http\Controllers\DefaultController;
 */
 
 Route::get('/', [DefaultController::class, 'index']);
+
+Route::get('reset/position/{char_id}', [CharacterController::class, 'resetPosition'])
+    ->name('reset.position');
 
 Route::post('login/authenticate', [LoginController::class, 'authenticate'])
     ->name('login.authenticate');

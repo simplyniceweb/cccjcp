@@ -27,7 +27,7 @@
             <td class="border border-slate-300 p-2">{{ $user->job_level ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $user->last_login ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">
-                <button class="bg-red-400 px-1 font-semibold uppercase rounded text-white">Reset Position?</button>
+                <a onClick="return confirm('Are you sure want to reset character position?')" href="{{ route('reset.position', ['char_id', $user->char_id]) }}" class="bg-red-400 px-1 font-semibold uppercase rounded text-white">Reset Position?</button>
             </td>
         </tr>
         @endforeach
