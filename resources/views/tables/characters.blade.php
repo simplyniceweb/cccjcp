@@ -5,8 +5,9 @@
     <thead class="text-left">
         <tr>
             <th class="border border-slate-300 p-2"></th>
-            <th class="border border-slate-300 p-2">Char Nr</th>
+            <th class="border border-slate-300 p-2">ID</th>
             <th class="border border-slate-300 p-2">Name</th>
+            <th class="border border-slate-300 p-2">Sex</th>
             <th class="border border-slate-300 p-2">Class</th>
             <th class="border border-slate-300 p-2">Base Lvl</th>
             <th class="border border-slate-300 p-2">Job Lvl</th>
@@ -17,8 +18,9 @@
         @foreach ($users as $user)
         <tr>
             <td class="border border-slate-300 p-2"></td>
-            <td class="border border-slate-300 p-2">{{ $user->char_num }}</td>
+            <td class="border border-slate-300 p-2">{{ $user->char_id }}</td>
             <td class="border border-slate-300 p-2">{{ $user->name ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2">{{ $user->sex ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $user->class ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $user->base_level ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $user->job_level ?: 'n/a' }}</td>

@@ -54,6 +54,7 @@
                     <h3>Manage Characters</h3>
                 </div>
                 @include('tables.characters')
+                <hr class="my-5">
             @endauth
 
             <div class="grid grid-cols-3 mt-2">
