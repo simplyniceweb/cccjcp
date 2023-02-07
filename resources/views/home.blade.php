@@ -50,10 +50,10 @@
             <hr class="my-2">
 
             @auth
-            <div class="grid grid-rows-2">
-                <h3>Manage Characters</h3>
-            </div>
-            
+                <div class="grid grid-rows-2">
+                    <h3>Manage Characters</h3>
+                </div>
+                @include('tables.characters')
             @endauth
 
             <div class="grid grid-cols-3 mt-2">
