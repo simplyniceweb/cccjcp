@@ -12,7 +12,7 @@
     <tbody>
         @foreach ($results as $result)
         <tr>
-            <td class="border border-slate-300 p-2"><img src="https://file5s.ratemyserver.net/mobs/{{ $result->ID }}.gif" class="w-9" alt=""></td>
+            <td class="border border-slate-300 p-2"><img src="https://file5s.ratemyserver.net/mobs/{{ $result->ID }}.gif" alt=""></td>
             <td class="border border-slate-300 p-2">{{ $result->kName }}</td>
             <td class="border border-slate-300 p-2">{{ $result->LV ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">{{ $result->HP ?: 'n/a' }}</td>
