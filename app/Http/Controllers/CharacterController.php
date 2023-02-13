@@ -25,7 +25,7 @@ class CharacterController extends Controller
         Inventory::where('char_id', $char_id)->update(['equip' => 0]);
 
         Char::where('char_id', $char_id)->update([
-            'hair' => 0,
+            'hair' => 1,
             'hair_color' => 0,
             'clothes_color' => 0,
             'weapon' => 0,
