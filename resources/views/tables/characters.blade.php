@@ -31,10 +31,10 @@
                 <div x-show="action" id="dropdown" class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" style="display: none">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                       <li>
-                        <a onClick="return confirm('Are you sure want to reset character position?')" href="{{ route('reset.position', $user->char_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reset Position?</a>
+                        <a onClick="return confirm('Are you sure want to reset character position?')" href="{{ route('reset.position', $user->char_id) }}" class="block border bt-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reset Position</a>
                       </li>
                       <li>
-                        <a onclick="return confirm('Are you sure want to reset character look?')" href="{{ route('reset.look', $user->char_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reset Look?</a>
+                        <a onclick="return confirm('Are you sure want to reset character look?')" href="{{ route('reset.look', $user->char_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reset Look</a>
                       </li>
                     </ul>
                 </div>
