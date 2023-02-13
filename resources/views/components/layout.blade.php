@@ -21,8 +21,16 @@
 <body class="bg-scroll bg-no-repeat bg-cover bg-bottom bg-emerald-700 pb-52" style="background-image: url('images/bg.png')">
     @include('_header')
 
-    <div class="max-w-screen-xl m-auto">
+    <div class="max-w-screen-xl m-auto" x-data="{ open: false }">
         {{ $slot }}
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.5/cdn.js"></script>
+
+    @if (session('registration'))
+        <script>
+            const get = document.getElementById("signupbtn");
+            get.click();
+        </script>
+    @endif
 </body>
 </html>

@@ -25,6 +25,9 @@ class DefaultController extends Controller
             }
 
             $results = $results->appends(request()->input());
+        } else {
+            $search = "por";
+            $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate(5);
         }
 
         $users = User::where('id', '!=', 1);

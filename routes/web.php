@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\CharacterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DefaultController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CharacterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,15 @@ use App\Http\Controllers\DefaultController;
 */
 
 Route::get('/', [DefaultController::class, 'index']);
+
+Route::post('/register', [RegisterController::class, 'index'])
+    ->name('registration');
+
+Route::post('/change/password', [RegisterController::class, 'changepassword'])
+    ->name('change.password');
+
+Route::get('/register/validation/{username}/{code}', [RegisterController::class, 'validation'])
+    ->name('registration.validation');
 
 Route::get('reset/position/{char_id}', [CharacterController::class, 'resetPosition'])
     ->name('reset.position');
