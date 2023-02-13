@@ -1,7 +1,7 @@
 @php
     $users = DB::table('char')->where('account_id', auth()->user()->account_id)->get();
 @endphp
-<table class="mb-3 mt-3 w-full border-collapse border border-slate-400 overflow-y-scroll sm:overflow-auto">
+<table class="mb-3 mt-3 w-full border-collapse border border-slate-400 overflow-x-scroll sm:overflow-auto">
     <thead class="text-left">
         <tr>
             <th class="border border-slate-300 p-2"></th>
