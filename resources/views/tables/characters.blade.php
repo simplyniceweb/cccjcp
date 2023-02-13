@@ -3,7 +3,7 @@
 @endphp
 <table class="mb-3 mt-3 w-full border-collapse border border-slate-400 overflow-x-scroll sm:overflow-auto">
     <thead class="text-left">
-        <tr>
+        <tr class="flex flex-col flex-no wrap sm:table-row">
             <th class="border border-slate-300 p-2"></th>
             <th class="border border-slate-300 p-2">ID</th>
             <th class="border border-slate-300 p-2">Name</th>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
         @foreach ($users as $user)
-        <tr>
+        <tr class="flex flex-col flex-no wrap sm:table-row">
             <td class="border border-slate-300 p-2"><img src="https://ratemyserver.net/skill_chars/j{{$user->class}}_{{ strtolower($user->sex) }}_stand.gif" class="w-9" alt=""></td>
             <td class="border border-slate-300 p-2">{{ $user->char_id }}</td>
             <td class="border border-slate-300 p-2">{{ $user->name ?: 'n/a' }}</td>
