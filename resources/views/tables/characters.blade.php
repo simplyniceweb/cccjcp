@@ -3,7 +3,7 @@
 @endphp
 <table class="mb-3 mt-3 w-full border-collapse border border-slate-400 overflow-x-scroll sm:overflow-auto">
     <thead class="text-left">
-        <tr class="flex flex-col flex-no wrap sm:table-row">
+        <tr class="hidden sm:table-row">
             <th class="border border-slate-300 p-2"></th>
             <th class="border border-slate-300 p-2">ID</th>
             <th class="border border-slate-300 p-2">Name</th>
