@@ -2,8 +2,8 @@
 
 date_default_timezone_set('Asia/Singapore');
 
-$info = getdate();
-$time = $info['hours'] . ":" .$info['minutes'] . ":" .$info['seconds'];
+// $info = getdate();
+// $time = $info['hours'] . ":" .$info['minutes'] . ":" .$info['seconds'];
 
 $host = '15.235.186.161';
 $ports = [
@@ -45,7 +45,7 @@ foreach ($ports as $key => $port)
                     </li>
                     <li>
                         <a href="#" 
-                            class="block py-1 px-2 text-sm text-white rounded bg-amber-400">SERVER TIME: <span class="time">@php echo $time; @endphp</span></a>
+                            class="block py-1 px-2 text-sm text-white rounded bg-amber-400">SERVER TIME: <span class="time">{{ now()->format('g:i:s A') }}</span></a>
                     </li>
                 </ul>
             </div>
