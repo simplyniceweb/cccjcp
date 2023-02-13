@@ -25,7 +25,7 @@
             <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Class:</span>{{ $user->class ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Base Lvl:</span>{{ $user->base_level ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Job Lvl:</span>{{ $user->job_level ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Last Log:</span>{{ $user->last_login ? $user->last_login->diffForHumans(): 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Last Log:</span>{{ $user->last_login ? date('Y:m:d h:i:s A', strtotime($user->last_login))->diffForHumans(): 'n/a' }}</td>
             <td class="border border-slate-300 p-2">
                 <a onClick="return confirm('Are you sure want to reset character position?')" href="{{ route('reset.position', $user->char_id) }}" class="bg-red-400 block px-1 font-semibold uppercase rounded text-white mb-3">Reset Position?</button>
                 <a onclick="return confirm('Are you sure want to reset character look?')" href="{{ route('reset.look', $user->char_id) }}" class="bg-red-400 block px-1 font-semibold uppercase rounded text-white">Reset Look?</a>
