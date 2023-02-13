@@ -19,13 +19,13 @@
         @foreach ($users as $user)
         <tr class="flex flex-col flex-no wrap sm:table-row">
             <td class="border border-slate-300 p-2"><img src="https://ratemyserver.net/skill_chars/j{{$user->class}}_{{ strtolower($user->sex) }}_stand.gif" class="w-9" alt=""></td>
-            <td class="border border-slate-300 p-2 text-right sm:text-left"><span class="text-left inline-block font-semibold sm:hidden mr-2 uppercase">ID:</span>{{ $user->char_id }}</td>
-            <td class="border border-slate-300 p-2 text-right sm:text-left"><span class="text-left inline-block font-semibold sm:hidden mr-2 uppercase">Name:</span>{{ $user->name ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2 text-right sm:text-left"><span class="text-left inline-block font-semibold sm:hidden mr-2 uppercase">Sex:</span>{{ $user->sex ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2 text-right sm:text-left"><span class="text-left inline-block font-semibold sm:hidden mr-2 uppercase">Class:</span>{{ $user->class ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2 text-right sm:text-left"><span class="text-left inline-block font-semibold sm:hidden mr-2 uppercase">Base Lvl:</span>{{ $user->base_level ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2 text-right sm:text-left"><span class="text-left inline-block font-semibold sm:hidden mr-2 uppercase">Job Lvl:</span>{{ $user->job_level ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2 text-right sm:text-left"><span class="text-left inline-block font-semibold sm:hidden mr-2 uppercase">Last Log:</span>{{ $user->last_login ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">ID:</span><span class="text-right sm:text-left">{{ $user->char_id }}</span></td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Name:</span><span class="text-right sm:text-left">{{ $user->name ?: 'n/a' }}</span></td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Sex:</span><span class="text-right sm:text-left">{{ $user->sex ?: 'n/a' }}</span></td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Class:</span><span class="text-right sm:text-left">{{ $user->class ?: 'n/a' }}</span></td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Base Lvl:</span><span class="text-right sm:text-left">{{ $user->base_level ?: 'n/a' }}</span></td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Job Lvl:</span><span class="text-right sm:text-left">{{ $user->job_level ?: 'n/a' }}</span></td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Last Log:</span><span class="text-right sm:text-left">{{ $user->last_login ?: 'n/a' }}</span></td>
             <td class="border border-slate-300 p-2" x-data="{ action: false }">
                 <button x-on:click="action = ! action" id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Actions <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                 <div x-show="action" id="dropdown" class="z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700" style="display: none">
