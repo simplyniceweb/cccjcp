@@ -19,13 +19,13 @@
         @foreach ($users as $user)
         <tr class="flex flex-col flex-no wrap sm:table-row">
             <td class="border border-slate-300 p-2"><img src="https://ratemyserver.net/skill_chars/j{{$user->class}}_{{ strtolower($user->sex) }}_stand.gif" class="w-9" alt=""></td>
-            <td class="border border-slate-300 p-2"><span class="block sm:hidden mr-2">ID</span>{{ $user->char_id }}</td>
-            <td class="border border-slate-300 p-2"><span class="block sm:hidden mr-2">Name</span>{{ $user->name ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2"><span class="block sm:hidden mr-2">Sex</span>{{ $user->sex ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2"><span class="block sm:hidden mr-2">Class</span>{{ $user->class ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2"><span class="block sm:hidden mr-2">Base Lvl</span>{{ $user->base_level ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2"><span class="block sm:hidden mr-2">Job Lvl</span>{{ $user->job_level ?: 'n/a' }}</td>
-            <td class="border border-slate-300 p-2"><span class="block sm:hidden mr-2">Last Log</span>{{ $user->last_login ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">ID:</span>{{ $user->char_id }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Name:</span>{{ $user->name ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Sex:</span>{{ $user->sex ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Class:</span>{{ $user->class ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Base Lvl:</span>{{ $user->base_level ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Job Lvl:</span>{{ $user->job_level ?: 'n/a' }}</td>
+            <td class="border border-slate-300 p-2"><span class="inline-block font-semibold sm:hidden mr-2 uppercase">Last Log:</span>{{ $user->last_login ?: 'n/a' }}</td>
             <td class="border border-slate-300 p-2">
                 <a onClick="return confirm('Are you sure want to reset character position?')" href="{{ route('reset.position', $user->char_id) }}" class="bg-red-400 block px-1 font-semibold uppercase rounded text-white mb-3">Reset Position?</button>
                 <a onclick="return confirm('Are you sure want to reset character look?')" href="{{ route('reset.look', $user->char_id) }}" class="bg-red-400 block px-1 font-semibold uppercase rounded text-white">Reset Look?</a>
