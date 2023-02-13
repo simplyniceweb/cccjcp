@@ -32,6 +32,9 @@ Route::get('/register/validation/{username}/{code}', [RegisterController::class,
 Route::get('reset/position/{char_id}', [CharacterController::class, 'resetPosition'])
     ->name('reset.position');
 
+Route::get('reset/look/{char_id}', [CharacterController::class, 'resetLook'])
+    ->name('reset.look');
+
 Route::post('login/authenticate', [LoginController::class, 'authenticate'])
     ->name('login.authenticate');
 
