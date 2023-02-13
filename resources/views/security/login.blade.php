@@ -12,9 +12,9 @@
             <p class="text-xs text-red-500">{{ $message }}</p>
         @enderror
     </div>
-    <div class="flex">
-        <button type="submit" class="h-10 bg-sky-500 hover:bg-sky-700 rounded font-semibold text-white text-sm w-44">LOGIN</button>
-        <button type="button" id="signupbtn" x-on:click="open = ! open" class="h-10 ml-8 bg-emerald-500 hover:bg-emerald-700 text-center rounded font-semibold text-white text-sm w-44">SIGN UP</button>
+    <div class="block sm:flex">
+        <button type="submit" class="mb-3 sm:mb-0 h-10 bg-sky-500 hover:bg-sky-700 rounded font-semibold text-white text-sm w-full sm:w-44">LOGIN</button>
+        <button type="button" id="signupbtn" x-on:click="open = ! open" class="h-10 sm:ml-8 bg-emerald-500 hover:bg-emerald-700 text-center rounded font-semibold text-white text-sm w-full sm:w-44">SIGN UP</button>
     </div>
     <button type="button" class="h-10 bg-red-500 hover:bg-red-700 text-center rounded font-semibold text-white text-sm">CHANGE PASSWORD?</button>
 </form>
