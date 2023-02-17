@@ -89,4 +89,5 @@
     </div>
 
     @include('security.registration')
+    @include("security.forgotpass")
 </x-layout>

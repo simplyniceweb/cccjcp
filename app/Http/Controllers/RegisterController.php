@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\ChangePassword;
 use Illuminate\Http\Request;
 use App\Mail\ConfirmRegistration;
 use Illuminate\Http\JsonResponse;
@@ -77,5 +78,48 @@ class RegisterController extends Controller
         Auth::logout();
 
         return redirect('/')->with('message', 'Hi, ' . $user_id . '! This is an automated message to confirm that your password has been successfully changed.');
+    }
+
+    public function forgotpassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed', Password::min(8)->letters()->mixedCase()->numbers()->symbols()],
+        ]);
+
+        $validator->errors()->add('field', 'Something is wrong with this field!');
+
+        if ($validator->fails()) {
+            return redirect('/')
+                    ->withErrors($validator)
+                    ->withInput()
+                    ->with('forgotpass', true);
+        }
+
+        $validated = $validator->validated();
+        $email = $validated['email'];
+
+        $user = User::where('email', $email)->first();
+        if (!empty($user)) {
+            $username = $user->userid;
+            $url = route('forgot.validation', ['username' => $username, 'code' => md5($validated['password'])]);
+    
+            Mail::to($email)->send(new ChangePassword($email, $username, $url));
+    
+            return redirect('/')->with('message', 'Hi, ' . $username . '! We sent you an email to verify your forgot password action.');
+        } else {
+            $validator->errors()->add('email', 'Email does not exist!');
+            return redirect('/')
+                    ->withErrors($validator)
+                    ->withInput()
+                    ->with('forgotpass', true);
+        }
+    }
+
+    public function forgotvalidation(Request $request, ?string $username, ?string $code)
+    {
+        User::where('userid', $username)->update(['user_pass' => $code]);
+
+        return redirect('/')->with('message', 'Hi, ' . $username . '! You successfully changed your account password.');
     }
 }

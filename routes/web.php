@@ -23,6 +23,12 @@ Route::get('/', [DefaultController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'index'])
     ->name('registration');
 
+Route::post('/forgot/password', [RegisterController::class, 'forgotpassword'])
+    ->name('forgot.password');
+
+Route::get('/forgot/validation/{username}/{code}', [RegisterController::class, 'forgotvalidation'])
+    ->name('forgot.validation');
+
 Route::post('/change/password', [RegisterController::class, 'changepassword'])
     ->name('change.password');
 
