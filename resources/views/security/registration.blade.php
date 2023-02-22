@@ -55,6 +55,8 @@
                             <p class="text-xs text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
+                    <x-honey/>
+                    <x-honey-recaptcha/> 
                     <!--
                     <div class="flex justify-between">
                         <div class="flex hidden items-start">

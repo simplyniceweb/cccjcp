@@ -21,6 +21,7 @@ use App\Http\Controllers\CharacterController;
 Route::get('/', [DefaultController::class, 'index']);
 
 Route::post('/register', [RegisterController::class, 'index'])
+    ->middleware(['honey', 'honey-recaptcha'])
     ->name('registration');
 
 Route::post('/forgot/password', [RegisterController::class, 'forgotpassword'])
