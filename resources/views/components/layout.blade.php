@@ -24,6 +24,7 @@
     <div class="max-w-screen-xl m-auto" x-data="{ open: false }">
         {{ $slot }}
     </div>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.5/cdn.js"></script>
 
     <script>
