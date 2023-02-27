@@ -36,6 +36,7 @@
                       <li>
                         <a onclick="return confirm('Are you sure want to reset character look?')" href="{{ route('reset.look', $user->char_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reset Look</a>
                       </li>
+                      <li><a href="">Equipments</a></li>
                     </ul>
                 </div>
                 {{-- <a onClick="return confirm('Are you sure want to reset character position?')" href="{{ route('reset.position', $user->char_id) }}" class="bg-red-400 block px-1 font-semibold uppercase rounded text-white mb-3">Reset Position?</button> --}}
