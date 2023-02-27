@@ -13,7 +13,18 @@ class DefaultController extends Controller
 {
     public function index()
     {
-        // dd(Auth::user());
+        $blogs = [];
+        if (file_exists('blog/data/listings.xml')) {
+            $xmlstring = simplexml_load_file('blog/data/listings.xml');
+            $json = json_encode($xmlstring );
+            $blogs = json_decode($json, TRUE);
+
+            if ($blogs && null !== $blogs['listing']) {
+                $blogs = array_reverse($blogs['listing']);
+                // dd($blogs);
+            }
+        }
+
         $results = [];
         $type = request()->input('type');
         $search = request()->input('search');
@@ -49,7 +60,8 @@ class DefaultController extends Controller
         return view('home', [
             'users' => $users,
             'results' => $results,
-            'type' => $type
+            'type' => $type,
+            'blogs' => $blogs
         ]);
     }
 }

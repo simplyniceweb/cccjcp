@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blog>
+	<information>
+		<blog_logo/>
+		<blog_logo_text>Ragnarok Old World</blog_logo_text>
+		<intro_content>custom</intro_content>
+		<intro_title>Welcome to Ragnarok Old World</intro_title>
+		<intro_text>Ragnarok Old World is a popular massively multiplayer online role-playing game (MMORPG) that has been around for over a decade. Developed by Gravity Interactive, it is set in a fantasy world inspired by Norse mythology, where players can create their own characters and embark on epic quests and battles.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+The game's world is rich in lore, featuring various gods, monsters, and mythical creatures that players can encounter and interact with. It offers a vast array of customization options for characters, including different classes and skill trees, as well as a wide range of equipment and items to collect.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Ragnarok Old World is known for its vibrant and colorful graphics, fast-paced combat, and engaging community. Players can form alliances and guilds to collaborate on quests and battles, and the game offers various social features such as player-run shops, weddings, and parties.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Whether you're a veteran MMORPG player or new to the genre, Ragnarok Old World offers a thrilling and immersive experience that is sure to keep you hooked for hours on end.</intro_text>
+		<intro_background>99286223</intro_background>
+		<footer_text/>
+		<default_title>Blog Lite</default_title>
+		<default_description/>
+		<default_keywords/>
+		<facebook_url/>
+		<google_url/>
+		<twitter_url/>
+		<instagram_url/>
+	</information>
+</blog>

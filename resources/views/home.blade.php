@@ -71,8 +71,10 @@
                             <option value="item" {{ request()->input('type') == 'item' ? 'selected' : '' }}>Item</option>
                             <option value="monster" {{ request()->input('type') == 'monster' ? 'selected' : '' }}>Monster</option>
                             @auth
-                            <option value="account" {{ request()->input('type') == 'account' ? 'selected' : '' }}>Account</option>
-                            <option value="character" {{ request()->input('type') == 'character' ? 'selected' : '' }}>Characters</option>
+                                @if (auth()->user()->group_id == 99)
+                                <option value="account" {{ request()->input('type') == 'account' ? 'selected' : '' }}>Account</option>
+                                <option value="character" {{ request()->input('type') == 'character' ? 'selected' : '' }}>Characters</option>
+                                @endif
                             @endauth
                         </select>
                         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3" id="">
@@ -87,6 +89,26 @@
             @if (count($results))
                 {{ $results->links() }}
             @endif
+
+            <hr class="my-5">
+
+            <div class="mt-5">
+                <h4 class="text-3xl">Latest blogs</h4>
+                <ul class="inline-block w-full mt-3">
+                    @foreach ($blogs as $key => $blog)
+                        @php
+                            $url = "blog/post-".Str::slug($blog['title'])."-".$key.".html";
+                        @endphp
+                        <li class="block w-full">
+                            <a href="<?= $url ?>" class="block p-3 hover:text-red-400 bg-stone-50 hover:bg-stone-200">
+                                <span class="text-red-300 text-sm block"><?php echo date('F jS, Y', intval($blog['time']));?></span>
+                                {{ $blog['title'] }}
+                            </a>
+                            <hr class="border-dashed border-red-300">
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 
