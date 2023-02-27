@@ -70,16 +70,18 @@
                         <select name="type" id="type" class="mr-3 border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3">
                             <option value="item" {{ request()->input('type') == 'item' ? 'selected' : '' }}>Item</option>
                             <option value="monster" {{ request()->input('type') == 'monster' ? 'selected' : '' }}>Monster</option>
+                            @auth
+                            <option value="account" {{ request()->input('type') == 'account' ? 'selected' : '' }}>Account</option>
+                            <option value="character" {{ request()->input('type') == 'character' ? 'selected' : '' }}>Characters</option>
+                            @endauth
                         </select>
                         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search" class="border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent p-2 mb-3" id="">
                     </div>
                 </form>
             </div>
 
-            @if ($type == 'item')
-                @include('tables.items')
-            @else
-                @include('tables.monsters')
+            @if ($type)
+                @include("tables.$type")
             @endif
 
             @if (count($results))

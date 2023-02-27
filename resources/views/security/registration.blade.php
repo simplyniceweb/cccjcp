@@ -15,8 +15,23 @@
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Sign up to earn and enjoy!</h3>
                 <hr>
-                <form class="space-y-6" action="{{ route('registration') }}" method="POST">
+                <form 
+                    class="space-y-6" 
+                    action="{{ route('registration') }}" 
+                    method="POST"
+                    x-data="{
+                        recaptchaExec() {
+                            grecaptcha.ready(function(){
+                                grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', {action: 'registration'}).then(function(token) {
+                                    $refs.recaptchaToken.value = token
+                                    $el.submit()
+                                })
+                            })
+                        }
+                    }"
+                    x-on:submit.prevent="recaptchaExec">
                     @csrf
+                    <input type="hidden" name="recaptchaToken" x-ref="recaptchaToken">
                     <div>
                         <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
                         <input type="text" name="username" id="username" value="{{ old('username') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 outline outline-transparent" placeholder="Username" required>

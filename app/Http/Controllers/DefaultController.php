@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Char;
 use App\Models\User;
 use App\Models\MobDb;
 use App\Models\ItemDb;
@@ -18,15 +19,28 @@ class DefaultController extends Controller
         $search = request()->input('search');
 
         if ($type && $search) {
-            if ($type == 'item') {
-                $results = ItemDb::where('name_english', 'LIKE', '%'.$search.'%')->paginate();
-            } else {
-                $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate();
+            switch($type) {
+                case 'item':
+                    $results = ItemDb::where('name_english', 'LIKE', '%'.$search.'%')->paginate();
+                    break;
+                
+                case 'monster':
+                    $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate();
+                    break;
+
+                case 'account':
+                    $results = User::where('userid', 'LIKE', '%'.$search.'%')->paginate();
+                    break;
+                
+                case 'character':
+                    $results = Char::where('name', 'LIKE', '%'.$search.'%')->paginate();
+                    break;
             }
 
             $results = $results->appends(request()->input());
         } else {
             $search = "por";
+            $type = "monsters";
             $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate(5);
         }
 
