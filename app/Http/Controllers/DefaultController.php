@@ -51,7 +51,6 @@ class DefaultController extends Controller
             $results = $results->appends(request()->input());
         } else {
             $search = "por";
-            $type = "monsters";
             $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate(5);
         }
 
