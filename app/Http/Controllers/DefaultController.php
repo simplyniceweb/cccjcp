@@ -24,7 +24,7 @@ class DefaultController extends Controller
         
         // echo $response->getBody();
         // exit;
-        
+
         $blogs = [];
         if (file_exists('blog/data/listings.xml')) {
             $xmlstring = simplexml_load_file('blog/data/listings.xml');
@@ -63,6 +63,7 @@ class DefaultController extends Controller
             $results = $results->appends(request()->input());
         } else {
             $search = "por";
+            $type = "monster";
             $results = MobDb::where('kName', 'LIKE', '%'.$search.'%')->paginate(5);
         }
 
