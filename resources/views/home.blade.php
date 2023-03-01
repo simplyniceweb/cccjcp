@@ -39,7 +39,8 @@
             <hr class="my-5">
 
             <div class="mt-5">
-                <h4 class="text-3xl">Latest blogs</h4>
+                <h4 class="text-3xl">News &amp; Updates</h4>
+                @if (count($blogs) > 0)
                 <ul class="inline-block w-full mt-3">
                     @foreach ($blogs as $key => $blog)
                         @php
@@ -54,6 +55,7 @@
                         </li>
                     @endforeach
                 </ul>
+                @endif
             </div>
             
             @if (session('message'))
