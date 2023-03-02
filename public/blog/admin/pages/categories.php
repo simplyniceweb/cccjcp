@@ -1,7 +1,6 @@
 <?php
 if(isset($_POST["proceed_save"]))
 {
-	
 	$cats=stripslashes(stripslashes($_POST["blog_categories"]));
 	if(!preg_match("/[0-9]+/", $cats)) 
 	{
