@@ -29,11 +29,14 @@ class DefaultController extends Controller
         if (file_exists('blog/data/listings.xml')) {
             $xmlstring = simplexml_load_file('blog/data/listings.xml');
             $json = json_encode($xmlstring );
-            $blogs = json_decode($json, TRUE);
+            $blogy = json_decode($json, TRUE);
 
-            if ($blogs && null !== $blogs['listing']) {
-                $blogs = array_reverse($blogs['listing']);
-                // dd($blogs);
+            if ($blogy && null !== $blogy['listing']) {
+                if (null !== $blogy['listing'] && isset($blogy['listing'][0])) {
+                    $blogs = array_reverse($blogy['listing']);
+                } else {
+                    $blogs[] = array_reverse($blogy['listing']);
+                }
             }
         }
 

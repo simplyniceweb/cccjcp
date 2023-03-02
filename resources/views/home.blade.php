@@ -54,7 +54,7 @@
 
             <div class="mt-5">
                 <h4 class="text-3xl">News &amp; Updates</h4>
-                @if (count($blogs) > 0)
+                @if (null !== $blogs)
                 <ul class="inline-block w-full mt-3">
                     @foreach ($blogs as $key => $blog)
                         @php
