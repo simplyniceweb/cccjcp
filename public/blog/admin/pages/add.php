@@ -90,7 +90,7 @@ $this->SetAdminHeader($this->texts["new_post"]);
 			});
 			</script>
 			
-			<form  action="index.php" method="post" enctype="multipart/form-data">
+			<form  action="" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="page" value="add"/>
 			<input type="hidden" name="proceed_save" value="1"/>
 		
