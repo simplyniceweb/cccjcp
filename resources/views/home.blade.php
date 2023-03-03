@@ -61,8 +61,8 @@
                             $url = "blog/post-".Str::slug($blog['title'])."-".$key.".html";
                         @endphp
                         <li class="block w-full">
-                            <a href="<?= $url ?>" class="block p-3 hover:text-red-400 bg-stone-50 hover:bg-stone-200">
-                                <span class="text-red-300 text-sm block"><?php echo date('F jS, Y', intval($blog['time']));?></span>
+                            <a href="<?= $url ?>" class="block p-3 bg-stone-50 hover:bg-stone-200">
+                                <span class="text-sm block"><?php echo date('F jS, Y', intval($blog['time']));?></span>
                                 {{ $blog['title'] }}
                             </a>
                             <hr class="border-dashed border-red-300">
