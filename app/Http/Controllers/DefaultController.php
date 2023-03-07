@@ -13,19 +13,8 @@ class DefaultController extends Controller
 {
     public function index()
     {
-        // $client = new \GuzzleHttp\Client();
-
-        // $response = $client->request('POST', 'https://pg-sandbox.paymaya.com/payments/v1/payments', [
-        //   'headers' => [
-        //     'accept' => 'application/json',
-        //     'content-type' => 'application/json',
-        //   ],
-        // ]);
-        
-        // echo $response->getBody();
-        // exit;
-
         $blogs = [];
+     
         if (file_exists('blog/data/listings.xml')) {
             $xmlstring = simplexml_load_file('blog/data/listings.xml');
             $json = json_encode($xmlstring );
