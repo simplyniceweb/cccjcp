@@ -48,6 +48,6 @@ Route::post('login/authenticate', [LoginController::class, 'authenticate'])
 Route::get('logout', [LoginController::class, 'logout'])
     ->name('logout');
 
-Route::get('checkout/success', [PaymentController::class, 'success']);
-Route::get('checkout/failure', [PaymentController::class, 'failure']);
-Route::get('checkout/cancel', [PaymentController::class, 'cancel']);
+Route::post('checkout/success', [PaymentController::class, 'success']);
+Route::post('checkout/failure', [PaymentController::class, 'failure']);
+Route::post('checkout/cancel', [PaymentController::class, 'cancel']);
