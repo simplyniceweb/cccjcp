@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DefaultController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CharacterController;
 
@@ -46,3 +47,5 @@ Route::post('login/authenticate', [LoginController::class, 'authenticate'])
 
 Route::get('logout', [LoginController::class, 'logout'])
     ->name('logout');
+
+Route::get('checkout/success', [PaymentController::class, 'success']);

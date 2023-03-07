@@ -32,10 +32,12 @@ foreach ($ports as $key => $port)
                 <span class="self-center text-3xl font-bold whitespace-nowrap dark:text-white"><span class="text-lime-600">R</span><span class="text-rose-600">O</span><span class="text-yellow-600">W</span></span>
             </a>
 
-            <div class="flex items-center lg:order-2">
-                <a href="#" class="font-medium rounded-lg text-sm mr-3 px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH IN <i class="ml-3 fa-solid fa-sack-dollar"></i></a>
-                <a href="#" class="font-medium rounded-lg text-sm px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH OUT <i class="ml-3 fa-regular fa-money-bill-1"></i></a>
-            </div>
+            @auth()
+                <div class="flex items-center lg:order-2">
+                    <a href="#" class="font-medium rounded-lg text-sm mr-3 px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH IN <i class="ml-3 fa-solid fa-sack-dollar"></i></a>
+                    <a href="#" class="font-medium rounded-lg text-sm px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH OUT <i class="ml-3 fa-regular fa-money-bill-1"></i></a>
+                </div>
+            @endauth
 
             <div class="justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
