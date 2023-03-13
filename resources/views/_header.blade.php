@@ -29,15 +29,6 @@ if (Auth::user()) {
 }
 @endphp
 
-<script>
-    onClickCashIn(e) {
-        if({{ $logged }}){
-            e.preventDefault();
-            alert('Logout in-game first before cashing in.');
-        }
-    }
-</script>
-
 <header>
     <nav class="bg-orange-50 px-4 lg:px-6 py-1 border-b-2 border-orange-200">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -86,3 +77,12 @@ if (Auth::user()) {
     </nav>
 
 </header>
+
+<script>
+    onClickCashIn(e) {
+        if({{ $logged }}){
+            e.preventDefault();
+            alert('Logout in-game first before cashing in.');
+        }
+    }
+</script>
