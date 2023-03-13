@@ -25,8 +25,8 @@
             <div class="sm:grid sm:grid-cols-3 gap-4">
                 <div><img src="images/classes.jpg" class="rounded my-3" alt="classes"></div>
                 <div class="grid grid-rows-3 drop-shadow-md">
-                    <a href="https://www.facebook.com/gaming/oldworldro" class="w-full font-semibold drop-shadow-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 rounded p-2 my-3 text-white">FACEBOOK PAGE <i class="fa-brands fa-facebook float-right"></i></a>
-                    <a href="https://discord.com/invite/BXdwjapBBh" class="w-full font-semibold drop-shadow-md bg-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-red-500 hover:to-pink-500 rounded p-2 my-3 text-white">JOIN DISCORD <i class="fa-brands fa-discord float-right"></i></a>
+                    <a href="https://www.facebook.com/gaming/rowplay2earn" class="w-full font-semibold drop-shadow-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 rounded p-2 my-3 text-white">FACEBOOK PAGE <i class="fa-brands fa-facebook float-right"></i></a>
+                    <a href="https://discord.gg/NFQ2hYeas9" class="w-full font-semibold drop-shadow-md bg-gradient-to-r from-pink-500 to-red-500 hover:bg-gradient-to-r hover:from-red-500 hover:to-pink-500 rounded p-2 my-3 text-white">JOIN DISCORD <i class="fa-brands fa-discord float-right"></i></a>
                     <a target="_blank" href="https://drive.google.com/u/0/uc?id=1da8cWXtNLCmBaCKXy5kTyWIE-4-KoPPw&export=download" class="w-full font-semibold drop-shadow-md bg-gradient-to-r from-lime-500 to-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-lime-500 rounded p-2 my-3 text-white">DOWNLOAD FULL CLIENT <i class="fa-solid fa-gamepad float-right"></i></a>
                 </div>
                 <div class="p-3">
