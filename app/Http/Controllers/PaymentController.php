@@ -8,7 +8,7 @@ class PaymentController extends Controller
 {
     public function success()
     {
-        return response()->json(['message' => 'Success!']);
+        return response()->json(['data' => request()->all()]);
     }
 
     public function failure()
