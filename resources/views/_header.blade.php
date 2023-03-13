@@ -23,7 +23,10 @@ foreach ($ports as $key => $port)
     }
 }
 
-$logged = DB::table('char')->where('account_id', Auth::user()->account_id)->where('online', 1)->count();
+$logged = 0;
+if (Auth::user()) {
+    $logged = DB::table('char')->where('account_id', Auth::user()->account_id)->where('online', 1)->count();
+}
 @endphp
 
 <script>
