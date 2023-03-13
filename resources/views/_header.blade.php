@@ -82,7 +82,7 @@ if (Auth::user()) {
     function onClickCashIn(e) {
         if({{ $logged }}){
             e.preventDefault();
-            alert('Logout in-game first before cashing in.');
+            alert('LOGOUT in-game first before cashing in, then refresh the website.');
         }
     }
 </script>
