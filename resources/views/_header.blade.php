@@ -22,7 +22,17 @@ foreach ($ports as $key => $port)
         fclose($connection);
     }
 }
+
+$logged = DB::table('char')->where('account_id', Auth::user()->account_id)->where('online', 1)->count();
 @endphp
+
+<script>
+    onClickCashIn(e) {
+        if({{ $logged }}){
+            e.preventDefault();
+        }
+    }
+</script>
 
 <header>
     <nav class="bg-orange-50 px-4 lg:px-6 py-1 border-b-2 border-orange-200">
@@ -34,7 +44,7 @@ foreach ($ports as $key => $port)
 
             @auth()
                 <div class="flex items-center lg:order-2">
-                    <a href="#" class="font-medium rounded-lg text-sm mr-3 px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH IN <i class="ml-3 fa-solid fa-sack-dollar"></i></a>
+                    <a @click="onClick($event) target="_blank" href="https://paymaya.me/ragnarokoldwor" class="font-medium rounded-lg text-sm mr-3 px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH IN <i class="ml-3 fa-solid fa-sack-dollar"></i></a>
                     <a href="#" class="font-medium rounded-lg text-sm px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH OUT <i class="ml-3 fa-regular fa-money-bill-1"></i></a>
                 </div>
             @endauth
