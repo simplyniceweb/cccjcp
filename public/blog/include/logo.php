@@ -2,7 +2,7 @@
 // Blog Lite 
 // Copyright (c) All Rights Reserved, NetArt Media 2003-2018
 // Check http://www.netartmedia.net/blog-lite for demos and information
-?><a href="http://ragnarokoldworld.online/" class="navbar-brand"><?php
+?><a href="https://ragnarokoldworld.online/" class="navbar-brand"><?php
 	if
 	(
 		$this->information->blog_logo!=""
