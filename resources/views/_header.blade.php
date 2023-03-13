@@ -83,6 +83,7 @@ if (Auth::user()) {
         if({{ $logged }}){
             e.preventDefault();
             alert('LOGOUT in-game first before cashing in, then refresh the website.');
+            location.reload();
         }
     }
 </script>
