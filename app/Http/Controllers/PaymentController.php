@@ -36,7 +36,7 @@ class PaymentController extends Controller
         $pk = "pk-wmsYQGr8whqDYNnNGWKiAveqCUJ9KtBCwzy81wQrlU0";
         $sk = "sk-rYKeHqvb5L7ovpvYXFjM7wlLrIZglk335HjhOyXL7wP";
         $body = [
-            "totalAmount" => ["value" => 1, "currency" => "PHP"],
+            "totalAmount" => ["value" => $amount, "currency" => "PHP"],
             "requestReferenceNumber" => $reference
         ];
 
