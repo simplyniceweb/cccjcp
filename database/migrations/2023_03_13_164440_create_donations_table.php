@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('donations', function (Blueprint $table) {
-            $table->integer('account_id');
-            $table->string('payment_id');
-            $table->float('amount');
-            $table->string('currency', 5);
-            $table->string('status', 50);
-            $table->string('reference_number');
+            $table->id();
+            $table->integer('account_id')->nullable();
+            $table->string('payment_id')->nullable();
+            $table->float('amount')->nullable();
+            $table->string('currency', 5)->nullable();
+            $table->string('status', 50)->nullable();
+            $table->string('reference_number')->nullable();
             $table->timestamps();
         });
     }

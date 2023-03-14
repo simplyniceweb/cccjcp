@@ -48,6 +48,7 @@ Route::post('login/authenticate', [LoginController::class, 'authenticate'])
 Route::get('logout', [LoginController::class, 'logout'])
     ->name('logout');
 
+Route::post('checkout/create', [PaymentController::class, 'createCheckoutLink'])->name('create.checkout_link');
 Route::post('checkout/success', [PaymentController::class, 'success']);
 Route::post('checkout/failure', [PaymentController::class, 'failure']);
 Route::post('checkout/cancel', [PaymentController::class, 'cancel']);

@@ -38,9 +38,87 @@ if (Auth::user()) {
             </a>
 
             @auth()
-                <div class="flex items-center lg:order-2">
-                    <a @click="onClickCashIn($event)" target="_blank" href="https://paymaya.me/ragnarokoldwor" class="font-medium rounded-lg text-sm mr-3 px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH IN <i class="ml-3 fa-solid fa-sack-dollar"></i></a>
+                <div 
+                    x-data="{
+                        min: 10,
+                        max: 5000,
+                        open: false,
+                        newpost: {},
+                        toggle(e) {
+                            if({{ $logged }}){
+                                e.preventDefault();
+                                alert('LOGOUT in-game first before cashing in, then refresh the website.');
+                                location.reload();
+                            } else {
+                                if (this.open) {
+                                    return this.close()
+                                }
+
+                                this.$refs.button.focus()
+
+                                this.open = true
+                            }
+                        },
+                        close(focusAfter) {
+                            if (! this.open) return
+
+                            this.open = false
+ 
+                            focusAfter && focusAfter.focus()
+                        },
+                        keyup(ele) {
+                            amount = ele.value ? ele.value : this.min;
+                            if (amount < this.min) {
+                                alert('Minimum cashin is PHP ' + this.min + '.00')
+                            }
+
+                            if (amount > this.max) {
+                                alert('Maximum cashin is PHP ' + this.max + '.00')
+                            }
+
+                            return this.createPost({amount: amount})
+                        },
+                        async createPost(amount) {
+                            this.newpost = await (await fetch('{{ url('checkout/create') }}', {
+                                method: 'POST',
+                                body: JSON.stringify(amount),
+                                headers: {
+                                    'Content-type': 'application/json; charset=UTF-8',
+                                },
+                            })).json()
+
+                            data = JSON.parse(this.newpost.data)
+
+                            console.log(data.redirectUrl)
+
+                            location.href = data.redirectUrl
+                        },
+                    }"
+                    x-on:keydown.escape.prevent.stop="close($refs.button)"
+                    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                    x-id="['dropdown-button']"
+                    class="flex items-center lg:order-2 relative">
+                    <a 
+                        x-ref="button"
+                        x-on:click="toggle($event)"
+                        :aria-expanded="open"
+                        :aria-controls="$id('dropdown-button')"
+                        class="font-medium rounded-lg text-sm mr-3 px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded relative">CASH IN <i class="ml-3 fa-solid fa-sack-dollar"></i>
+                    </a>
                     <a href="#" class="font-medium rounded-lg text-sm px-3 bg-sky-500 hover:bg-sky-700 py-1 text-white rounded">CASH OUT <i class="ml-3 fa-regular fa-money-bill-1"></i></a>
+
+                    <input 
+                        x-ref="panel"
+                        x-show="open"
+                        x-on:click.outside="close($refs.button)"
+                        :id="$id('dropdown-button')"
+                        x-on:keyup.enter="keyup($refs.panel)"
+                        style="display: none;"
+                        type="number" 
+                        name="amount" 
+                        id="cashinamount" 
+                        value="10"
+                        class="absolute left-0 -bottom-10 p-2 border placeholder:text-sky-400 text-sky-400 text-sm border-sky-300 rounded outline outline-transparent">
                 </div>
             @endauth
 
@@ -77,13 +155,3 @@ if (Auth::user()) {
     </nav>
 
 </header>
-
-<script>
-    function onClickCashIn(e) {
-        if({{ $logged }}){
-            e.preventDefault();
-            alert('LOGOUT in-game first before cashing in, then refresh the website.');
-            location.reload();
-        }
-    }
-</script>
