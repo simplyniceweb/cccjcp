@@ -126,7 +126,7 @@ if (Auth::user()) {
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
                         <a href="#" 
-                            class="mb-3 sm:mb-0 block py-1 px-2 text-sm text-white rounded bg-emerald-700">PLAYERS ONLINE: @php echo DB::table('char')->where('online', 1)->count(); @endphp</a>
+                            class="hidden mb-3 sm:mb-0 block py-1 px-2 text-sm text-white rounded bg-emerald-700">PLAYERS ONLINE: @php echo DB::table('char')->where('online', 1)->count(); @endphp</a>
                     </li>
                     <li>
                         <a href="#" 
