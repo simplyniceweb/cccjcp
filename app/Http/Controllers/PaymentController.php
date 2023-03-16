@@ -60,6 +60,20 @@ class PaymentController extends Controller
             $amount = $donation->amount;
             $account_id = $donation->account_id;
 
+            $logged = DB::table('char')->where('account_id', $account_id)->where('online', 1);
+
+            if ($logged->count()) {
+                $char = $logged->first();
+
+                DB::table('cp_commands')->insert([
+                    'command' => '@kick '. $char->name,
+                    'account_id' => $account_id,
+                    'done' => 0
+                ]);
+
+                sleep(3);
+            }
+
             $cashpoints = DB::table('acc_reg_num')->where('account_id', $account_id)->where('key', '#CASHPOINTS')->first();
             if($cashpoints) {
                 $amount = ($cashpoints->value + $amount);
