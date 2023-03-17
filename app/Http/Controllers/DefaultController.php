@@ -7,12 +7,20 @@ use App\Models\User;
 use App\Models\MobDb;
 use App\Models\ItemDb;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class DefaultController extends Controller
 {
     public function index()
     {
+        $cashpoints = DB::table('acc_reg_num')->where('account_id', 2000016)->where('key', '#CASHPOINTS')->limit(1);
+        if(!empty($cashpoints)) {
+            $cashdata = $cashpoints->get();
+            $amount = ($cashdata[0]->value + 10);
+            $cashpoints->update(['value' => $amount]);
+        }
+        exit;
         $blogs = [];
      
         if (file_exists('blog/data/listings.xml')) {

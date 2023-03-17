@@ -56,7 +56,7 @@ class PaymentController extends Controller
     {
         $donation = DB::table('donations')->where('id', request()->input('requestReferenceNumber'))->first();
         
-        if ($donation) {
+        if (!empty($donation)) {
             $amount = $donation->amount;
             $account_id = $donation->account_id;
 
@@ -74,12 +74,11 @@ class PaymentController extends Controller
                 sleep(3);
             }
 
-            $cashpoints = DB::table('acc_reg_num')->where('account_id', $account_id)->where('key', '#CASHPOINTS')->first();
-            if($cashpoints) {
-                $amount = ($cashpoints->value + $amount);
-                $cashpoints->update([
-                    'value' => $amount
-                ]);
+            $cashpoints = DB::table('acc_reg_num')->where('account_id', $account_id)->where('key', '#CASHPOINTS')->limit(1);
+            if(!empty($cashpoints)) {
+                $cashdata = $cashpoints->get();
+                $amount = ($cashdata[0]->value + $amount);
+                $cashpoints->update(['value' => $amount]);
             } else {
                 DB::table('acc_reg_num')->insert([
                     'account_id' => $account_id,
