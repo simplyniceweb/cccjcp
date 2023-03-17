@@ -21,8 +21,6 @@ class PaymentController extends Controller
             return response()->json(['message' => 'Amount is either lower than minimum or higher than maximum.']);
         }
 
-        $amount = 1;
-
         $user = Auth::user();
         $donation = new Donation();
         $donation->amount = $amount;
