@@ -26,6 +26,7 @@ class PaymentController extends Controller
         $donation->amount = $amount;
         $donation->account_id = $user->account_id;
         $donation->currency = "PHP";
+        $donation->status = "inprogress";
         $donation->save();
 
         $reference = $donation->id . "-" . uniqid();
@@ -54,11 +55,16 @@ class PaymentController extends Controller
     }
     public function success()
     {
-        $donation = DB::table('donations')->where('id', request()->input('requestReferenceNumber'))->first();
-        
-        if (!empty($donation)) {
-            $amount = $donation->amount;
-            $account_id = $donation->account_id;
+        $donation = DB::table('donations')->where('id', request()->input('requestReferenceNumber'))->limit(1);
+        $donationdata = $donation->get();
+
+        if (!empty($donationdata) && isset($donationdata[0])) {
+            $amount = $donationdata[0]->amount;
+            $account_id = $donationdata[0]->account_id;
+            
+            $donation->update([
+                'status' => 'success'
+            ]);
 
             $logged = DB::table('char')->where('account_id', $account_id)->where('online', 1);
 
@@ -75,10 +81,13 @@ class PaymentController extends Controller
             }
 
             $cashpoints = DB::table('acc_reg_num')->where('account_id', $account_id)->where('key', '#CASHPOINTS')->limit(1);
-            if(!empty($cashpoints)) {
-                $cashdata = $cashpoints->get();
+            $cashdata = $cashpoints->get();
+
+            if(!empty($cashdata) && isset($cashdata[0])) {
                 $amount = ($cashdata[0]->value + $amount);
-                $cashpoints->update(['value' => $amount]);
+                $cashpoints->update([
+                    'value' => $amount
+                ]);
             } else {
                 DB::table('acc_reg_num')->insert([
                     'account_id' => $account_id,
