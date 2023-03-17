@@ -55,7 +55,7 @@ class PaymentController extends Controller
     }
     public function success()
     {
-        $donation = DB::table('donations')->where('id', request()->input('requestReferenceNumber'))->limit(1);
+        $donation = DB::table('donations')->where('reference_number', request()->input('requestReferenceNumber'))->limit(1);
         $donationdata = $donation->get();
 
         if (!empty($donationdata) && isset($donationdata[0])) {
